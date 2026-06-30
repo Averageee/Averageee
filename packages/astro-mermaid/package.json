@@ -1,0 +1,43 @@
+{
+  "name": "astro-mermaid",
+  "version": "0.1.7",
+  "description": "Astro Integration for Mermaid",
+  "type": "module",
+  "types": "dist/astro-mermaid.d.mts",
+  "exports": {
+    ".": "./dist/astro-mermaid.mjs",
+    "./shiki-transformer": "./dist/shiki-transformer.mjs",
+    "./rehype-wrapper": "./dist/rehype-wrapper.mjs"
+  },
+  "private": true,
+  "keywords": [
+    "astro-integration",
+    "mermaid"
+  ],
+  "author": "Mogeko <zhengjunyi@live.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "bun ./build.ts",
+    "test": "bun test",
+    "cov": "bun test --coverage"
+  },
+  "dependencies": {
+    "hast-util-class-list": "^2.0.1",
+    "hastscript": "^9.0.1",
+    "rehype-mermaid": "^3.0.0",
+    "shiki": "^3.20.0",
+    "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "@tsconfig/bun": "^1.0.10",
+    "@types/bun": "^1.3.6",
+    "@types/hast": "^3.0.4",
+    "astro": "^5.16.15",
+    "tsdown": "^0.20.1",
+    "unified": "^11.0.5"
+  },
+  "peerDependencies": {
+    "playwright-core": "^1.0.0",
+    "typescript": "5"
+  }
+}

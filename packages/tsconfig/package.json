@@ -1,0 +1,31 @@
+{
+  "name": "@mogeko/tsconfig",
+  "version": "0.0.8",
+  "description": "`tsconfig.json` files for sharing",
+  "keywords": [
+    "typescript",
+    "tsconfig"
+  ],
+  "author": "Mogeko <zhengjunyi@live.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mogeko/mogeko.git",
+    "directory": "packages/tsconfig"
+  },
+  "homepage": "https://github.com/mogeko/mogeko/tree/master/packages/tsconfig#readme",
+  "bugs": {
+    "url": "https://github.com/mogeko/mogeko/issues",
+    "email": "zhengjunyi@live.com"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "default.tsconfig.json"
+  ],
+  "dependencies": {
+    "@tsconfig/strictest": "^2.0.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

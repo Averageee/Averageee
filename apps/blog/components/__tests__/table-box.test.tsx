@@ -1,0 +1,63 @@
+import { afterEach, describe, expect, it, mock } from "bun:test";
+import { cleanup, render } from "@testing-library/react";
+
+mock.module("katex", () => ({ renderToString: mock() }));
+mock.module("server-only", () => ({}));
+
+const { RowSeparator } = await import("@/components/table-box");
+
+afterEach(() => {
+  cleanup();
+  document.body.innerHTML = "";
+});
+
+const TableWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
+  return (
+    <table>
+      <tbody>{children}</tbody>
+    </table>
+  );
+};
+
+describe("RowSeparator", () => {
+  it("should render separator with default colSpan when not provided", () => {
+    const { container } = render(<RowSeparator />, {
+      wrapper: TableWrapper,
+    });
+
+    const separator = container.querySelector('[data-slot="table-cell"]');
+
+    expect(separator).toBeDefined();
+    expect(separator?.getAttribute("colSpan")).toBeNull();
+  });
+
+  it("should render separator with specified colSpan", () => {
+    const { container } = render(<RowSeparator colSpan={5} />, {
+      wrapper: TableWrapper,
+    });
+
+    const separator = container.querySelector('[data-slot="table-cell"]');
+
+    expect(separator).toBeDefined();
+    expect(separator?.getAttribute("colSpan")).toBe("5");
+  });
+
+  it("should have correct styling classes", () => {
+    const { container } = render(<RowSeparator />, {
+      wrapper: TableWrapper,
+    });
+
+    const separator = container.querySelector('[data-slot="table-cell"]');
+
+    expect(separator).toBeDefined();
+    expect(separator?.className).toContain("h-1");
+    expect(separator?.className).toContain("w-full");
+
+    const span = container.querySelector("span");
+
+    expect(span).toBeDefined();
+    expect(span?.className).toContain("bg-foreground");
+    expect(span?.className).toContain("h-[2px]");
+    expect(span?.className).toContain("w-full");
+  });
+});
