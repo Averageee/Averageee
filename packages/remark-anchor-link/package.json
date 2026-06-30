@@ -26,7 +26,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "tsdown ./index.ts",
+    "build": "tsdown ./index.ts --deps.skip-node-modules-bundle",
     "test": "bun test",
     "cov": "bun test --coverage"
   },
