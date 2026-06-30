@@ -26,7 +26,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "tsdown ./index.ts",
+    "build": "tsdown ./index.ts --inlineOnly @types/unist,@types/mdast",
     "test": "bun test",
     "cov": "bun test --coverage"
   },
